@@ -42,6 +42,55 @@ export interface SocialLink {
   icon: "github" | "linkedin" | "instagram";
 }
 
+/** A dated role in the Experience section of the resume. */
+export interface ResumeRole {
+  title: string;
+  organization: string;
+  location: string;
+  period: string;
+  /** Achievement-first bullets. Lead with the outcome, then the mechanism. */
+  bullets: string[];
+}
+
+/**
+ * A resume entry for a portfolio project. `slug` links back to `content/projects.ts`
+ * so the title, tech tags, and live URL stay in sync automatically; only the
+ * resume-length bullets are authored here.
+ */
+export interface ResumeProject {
+  slug: string;
+  /** Short role descriptor shown after the title, e.g. "Multi-tenant Retail POS". */
+  descriptor: string;
+  bullets: string[];
+  /** Tech shown on the resume line — a trimmed subset of the project's full tag list. */
+  stack: string[];
+}
+
+/** A certification, optionally linking to the issued credential. */
+export interface ResumeCertification {
+  name: string;
+  /** Public URL to the certificate. Rendered as a hyperlink on the name. */
+  url?: string;
+}
+
+export interface ResumeEducation {
+  qualification: string;
+  institution: string;
+  location: string;
+  period: string;
+}
+
+export interface ResumeConfig {
+  /** Headline under the name. Should match the roles being applied for. */
+  targetRole: string;
+  summary: string;
+  skillGroups: SkillGroup[];
+  experience: ResumeRole[];
+  projects: ResumeProject[];
+  education: ResumeEducation[];
+  certifications: ResumeCertification[];
+}
+
 export interface SiteConfig {
   name: string;
   role: string;

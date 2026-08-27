@@ -7,7 +7,7 @@ export const projects: Project[] = [
     category: "fullstack",
     categoryLabel: "Full-Stack",
     summary:
-      "Multi-role K-12 school management platform — 6 user roles, 11 Django apps, 100+ API endpoints, covering admissions, fees, report cards, payroll, leave, messaging, and AI question generation.",
+      "Multi-role K-12 school management platform — 7 user roles, 13 Django apps, 140+ API routes, covering admissions, fees, report cards, payroll, leave, messaging, and AI question generation.",
     tags: [
       "React 18",
       "Vite",
@@ -22,6 +22,7 @@ export const projects: Project[] = [
       "TOTP 2FA",
     ],
     image: "/images/projects/project-7.jpg",
+    liveDemo: "https://acadrix.ryxtech.in",
     featured: true,
     status: "ongoing",
     caseStudy: {
@@ -43,7 +44,7 @@ export const projects: Project[] = [
         "Auto-generated API docs via drf-spectacular at /api/docs/ (Swagger) and /api/schema/ (OpenAPI)",
       ],
       impact:
-        "11 Django apps, 100+ API endpoints, 40+ database tables, 35+ frontend pages — all role-scoped end-to-end. UDISE government compliance reporting built in. Currently in active development for deployment to Indian K-12 institutions.",
+        "13 Django apps, 140+ API routes, 94 multi-tenant models, 35+ frontend pages — all role-scoped end-to-end. UDISE government compliance reporting built in. Currently in active development for deployment to Indian K-12 institutions.",
       screenshots: [{ src: "/images/projects/project-7.jpg", alt: "Acadrix dashboard" }],
     },
   },

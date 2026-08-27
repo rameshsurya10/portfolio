@@ -9,7 +9,7 @@ export const site: SiteConfig = {
   whatsapp: "918667258008",
   location: "India",
   currently: "Building Acadrix — a multi-role school platform for Indian K-12",
-  resumeUrl: "/resume/Ramesh-Resume.pdf",
+  resumeUrl: "/resume/Ramesh-Aravindh-T-Full-Stack-Developer.pdf",
   siteUrl: "https://ramesharavindh.vercel.app",
   socials: [
     { label: "GitHub", href: "https://github.com/rameshsurya10", icon: "github" },
