@@ -169,7 +169,9 @@ const renderHeader = (site: SiteConfig, resume: ResumeConfig): string => {
     escapeHtml("Tiruppur, Tamil Nadu, India"),
     linkedin ? link(linkedin, "LinkedIn") : "",
     github ? link(github, "GitHub") : "",
-    link(site.siteUrl, displayUrl(site.siteUrl)),
+    // Labelled rather than spelled out: the deploy URL is long and machine-generated,
+    // and a wall of hostname reads as noise next to "LinkedIn" and "GitHub".
+    link(site.siteUrl, "Portfolio"),
   ].filter(Boolean);
 
   return `<header>

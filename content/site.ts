@@ -13,7 +13,7 @@ export const site: SiteConfig = {
   // editing content/resume.ts and regenerating updates what the site hands out.
   // (The earlier hand-authored FlowCV export still sits at public/Ramesh-Resume.pdf.)
   resumeUrl: "/resume/Ramesh.pdf",
-  siteUrl: "https://ramesharavindh.vercel.app",
+  siteUrl: "https://portfolio-five-navy-e6ex6mgf5z.vercel.app",
   socials: [
     { label: "GitHub", href: "https://github.com/rameshsurya10", icon: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/ramesharavindh08/", icon: "linkedin" },
