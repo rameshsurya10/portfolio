@@ -9,7 +9,10 @@ export const site: SiteConfig = {
   whatsapp: "918667258008",
   location: "India",
   currently: "Building Acadrix — a multi-role school platform for Indian K-12",
-  resumeUrl: "/resume/Ramesh-Aravindh-T-Full-Stack-Developer.pdf",
+  // Served CV — the generated resume. `npm run resume:pdf` writes exactly here, so
+  // editing content/resume.ts and regenerating updates what the site hands out.
+  // (The earlier hand-authored FlowCV export still sits at public/Ramesh-Resume.pdf.)
+  resumeUrl: "/resume/Ramesh.pdf",
   siteUrl: "https://ramesharavindh.vercel.app",
   socials: [
     { label: "GitHub", href: "https://github.com/rameshsurya10", icon: "github" },

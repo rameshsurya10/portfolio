@@ -32,7 +32,7 @@ const section = (title: string, body: string): string =>
   `<section><h2>${escapeHtml(title)}</h2>${body}</section>`;
 
 const styles = `
-  @page { size: A4; margin: 11mm 12mm; }
+  @page { size: A4; margin: 13mm 14mm; }
 
   :root {
     --ink: #1a1a1a;
@@ -45,8 +45,8 @@ const styles = `
 
   body {
     font-family: "Liberation Sans", Helvetica, Arial, sans-serif;
-    font-size: 9.3pt;
-    line-height: 1.34;
+    font-size: 9.8pt;
+    line-height: 1.5;
     color: var(--ink);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -55,7 +55,7 @@ const styles = `
   a { color: var(--accent); text-decoration: none; }
 
   /* ---------- header ---------- */
-  header { margin-bottom: 9pt; }
+  header { margin-bottom: 13pt; }
 
   h1 {
     font-size: 20pt;
@@ -81,7 +81,7 @@ const styles = `
   .contact span + span::before { content: " · "; color: var(--rule); }
 
   /* ---------- sections ---------- */
-  section { margin-top: 7.5pt; }
+  section { margin-top: 12pt; }
 
   h2 {
     font-size: 8.8pt;
@@ -90,20 +90,20 @@ const styles = `
     letter-spacing: 0.09em;
     color: var(--accent);
     border-bottom: 0.8pt solid var(--rule);
-    padding-bottom: 2pt;
-    margin-bottom: 5pt;
+    padding-bottom: 3pt;
+    margin-bottom: 7pt;
   }
 
-  .summary { text-align: justify; }
+  .summary { text-align: left; }
 
   /* ---------- skills ---------- */
-  .skill-row { margin-bottom: 2.2pt; }
+  .skill-row { margin-bottom: 6.5pt; padding-left: 12pt; text-indent: -12pt; }
   .skill-row:last-child { margin-bottom: 0; }
   .skill-label { font-weight: 700; }
   .skill-label::after { content: ": "; }
 
   /* ---------- entries (experience + projects) ---------- */
-  .entry { margin-bottom: 5.5pt; }
+  .entry { margin-bottom: 9pt; }
   .entry:last-child { margin-bottom: 0; }
 
   .entry-head {
@@ -120,12 +120,12 @@ const styles = `
   .entry-meta { font-size: 8.6pt; color: var(--muted); margin-top: 0.5pt; }
   .entry-meta .stack { font-style: italic; }
 
-  ul { list-style: none; margin-top: 2.5pt; }
+  ul { list-style: none; margin-top: 4pt; }
 
   li {
     padding-left: 9pt;
     position: relative;
-    margin-bottom: 1.3pt;
+    margin-bottom: 3.5pt;
   }
 
   li::before {
@@ -136,11 +136,11 @@ const styles = `
   }
 
   /* ---------- education + certifications ---------- */
-  .edu { display: flex; justify-content: space-between; gap: 8pt; margin-bottom: 3pt; }
+  .edu { display: flex; justify-content: space-between; gap: 8pt; margin-bottom: 8pt; }
   .edu:last-child { margin-bottom: 0; }
   .edu-qual { font-weight: 700; }
   .edu-inst { color: var(--muted); }
-  .certs { margin-top: 2.5pt; }
+  .certs { margin-top: 9pt; padding-left: 12pt; text-indent: -12pt; }
 
   /* ---------- unfinished-content marker ---------- */
   .pending-note { color: #b03030; font-style: italic; }

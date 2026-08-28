@@ -91,7 +91,7 @@ export default async function CaseStudyPage(
           </div>
 
           {/* Demo frame — browser chrome mock */}
-          {(project.liveDemo || project.github) && (
+          {project.image && (project.liveDemo || project.github) && (
             <Reveal>
               <div className="mb-20">
                 {project.liveDemo ? (

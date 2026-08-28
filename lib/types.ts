@@ -16,7 +16,8 @@ export interface Project {
   categoryLabel: string;
   summary: string;
   tags: string[];
-  image: string;
+  /** Poster shown in the case-study demo frame. Omit for internal work with no public URL. */
+  image?: string;
   github?: string;
   liveDemo?: string;
   featured: boolean;
@@ -34,6 +35,12 @@ export interface TimelineEntry {
   organization: string;
   period: string;
   kind: "education" | "experience";
+  /**
+   * What was actually built in the role. Same facts as the matching resume bullets
+   * in `content/resume.ts`, cut shorter for on-screen scanning. Omitted for
+   * education entries, which have nothing to list.
+   */
+  highlights?: string[];
 }
 
 export interface SocialLink {

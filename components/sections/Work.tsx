@@ -1,18 +1,23 @@
 "use client";
 import { useState } from "react";
 import { projects } from "@/content/projects";
-import { filterProjects } from "@/lib/filter";
-import type { ProjectCategory } from "@/lib/types";
+import { filterProjects, type FilterValue } from "@/lib/filter";
 import { ProjectRow } from "./ProjectRow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const FILTERS: { label: string; value: ProjectCategory }[] = [
+/*
+ * "All" leads and is the default. Without it the section opened on "Full-Stack" and
+ * the data projects were unreachable unless a visitor noticed the second tab — the
+ * work was on the page but nobody saw it.
+ */
+const FILTERS: { label: string; value: FilterValue }[] = [
+  { label: "All", value: "all" },
   { label: "Full-Stack", value: "fullstack" },
   { label: "Data Analytics", value: "data" },
 ];
 
 export function Work() {
-  const [filter, setFilter] = useState<ProjectCategory>("fullstack");
+  const [filter, setFilter] = useState<FilterValue>("all");
   const visible = filterProjects(projects, filter);
 
   return (

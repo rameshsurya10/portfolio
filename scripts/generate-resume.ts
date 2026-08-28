@@ -14,8 +14,22 @@ import { renderResumeHtml } from "./resume-template";
  *   --html  also writes the intermediate HTML next to the PDF for layout debugging
  */
 
-const OUT_DIR = path.resolve(process.cwd(), "public/resume");
-const OUT_FILE = "Ramesh-Aravindh-T-Full-Stack-Developer.pdf";
+/**
+ * Output path is derived from `site.resumeUrl` rather than duplicated here, so the
+ * file this script writes and the file the "Download CV" button serves can never
+ * drift apart — renaming one without the other previously produced a silent 404.
+ */
+/*
+ * Derived from `site.resumeUrl` so the file this script writes and the file the
+ * "Download CV" button serves cannot drift apart — renaming one without the other
+ * previously produced a silent 404.
+ *
+ * path.join, not path.resolve: `site.resumeUrl` is root-relative ("/resume/..."),
+ * and path.resolve would treat that leading slash as absolute and discard "public".
+ */
+const OUT_PATH = path.resolve(process.cwd(), path.join("public", site.resumeUrl));
+const OUT_DIR = path.dirname(OUT_PATH);
+const OUT_FILE = path.basename(OUT_PATH);
 
 /** A4 content box in CSS pixels at 96 dpi, after the 11mm × 13mm @page margins. */
 const MM_TO_PX = 96 / 25.4;

@@ -24,12 +24,26 @@ export function Experience() {
                   </span>
                 </div>
 
-                {/* Right: title + organization */}
+                {/* Right: title + organization + what was built */}
                 <div className="md:col-span-3">
                   <h3 className="font-[family-name:var(--font-display)] text-xl md:text-2xl text-ink font-medium">
                     {entry.title}
                   </h3>
                   <p className="mt-1 text-sm text-ink-muted">{entry.organization}</p>
+
+                  {entry.highlights && entry.highlights.length > 0 && (
+                    <ul className="mt-4 space-y-2.5">
+                      {entry.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-3 text-ink-muted">
+                          <span
+                            aria-hidden="true"
+                            className="mt-2 h-px w-3 shrink-0 bg-ink-muted/40"
+                          />
+                          <span className="text-sm leading-relaxed">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             ))}

@@ -13,10 +13,17 @@ describe("projects content", () => {
     }
   });
 
-  it("has a small, curated set of featured projects (4-8)", () => {
-    const count = projects.filter((p) => p.featured).length;
-    expect(count).toBeGreaterThanOrEqual(4);
-    expect(count).toBeLessThanOrEqual(8);
+  /*
+   * `featured` does not control what the Work section shows — that renders every
+   * project. It drives exactly two things: which slugs `generateStaticParams`
+   * prerenders, and which URLs land in the sitemap. So the invariant that matters is
+   * that a featured project actually has a case-study page to prerender, not how many
+   * of them there are.
+   */
+  it("features every project that has a case study, so none is left unprerendered", () => {
+    for (const p of projects.filter((p) => p.caseStudy)) {
+      expect(p.featured, `${p.slug} has a caseStudy but is not featured — its page will not prerender`).toBe(true);
+    }
   });
 
   it("every project has at least one destination — case study, github, or live demo", () => {

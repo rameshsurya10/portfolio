@@ -33,10 +33,10 @@ export function Skills() {
                 <div className="md:col-span-3">
                   <div className="flex flex-wrap items-center text-ink text-lg">
                     {group.skills.map((s, idx) => (
+                      // Separator trails its skill rather than leading the next one:
+                      // each span is a flex item, so a leading "·" wrapped onto the
+                      // next line and started it. Trailing keeps it ending a line.
                       <span key={s} className="inline-flex items-center">
-                        {idx > 0 && (
-                          <span aria-hidden="true" className="text-ink-muted/40 mx-3">·</span>
-                        )}
                         <motion.span
                           whileHover={prefersReducedMotion ? undefined : { y: -2 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
@@ -44,6 +44,9 @@ export function Skills() {
                         >
                           {s}
                         </motion.span>
+                        {idx < group.skills.length - 1 && (
+                          <span aria-hidden="true" className="text-ink-muted/40 mx-3">·</span>
+                        )}
                       </span>
                     ))}
                   </div>

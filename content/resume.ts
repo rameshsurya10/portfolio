@@ -13,19 +13,14 @@ export const resume: ResumeConfig = {
   targetRole: "Full-Stack Developer",
 
   summary:
-    "Full-Stack Developer with 2 years shipping production Django, Flask, and FastAPI services with " +
-    "React front ends, including AI features in live use: RAG over pgvector, LangGraph generation " +
-    "pipelines, and a natural-language-to-SQL tool secured structurally rather than by prompting. " +
-    "Cut page loads on a live POS from 3–9 seconds to 1–20 ms.",
+    "Focused on building production applications, data-driven solutions, and intelligent systems, " +
+    "combining software development, data analytics, and applied AI to solve practical business problems.",
 
   skillGroups: [
     {
-      name: "Languages",
-      skills: ["Python", "TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
-    },
-    {
       name: "Backend",
       skills: [
+        "Python",
         "Django",
         "Django REST Framework",
         "Flask",
@@ -41,6 +36,10 @@ export const resume: ResumeConfig = {
     {
       name: "Frontend",
       skills: [
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
         "React",
         "Next.js",
         "Vite",
@@ -67,6 +66,7 @@ export const resume: ResumeConfig = {
     {
       name: "Databases & Infrastructure",
       skills: [
+        "SQL",
         "PostgreSQL",
         "MySQL",
         "SQLite",
@@ -95,13 +95,11 @@ export const resume: ResumeConfig = {
         "Built MeterSquare ERP on FastAPI and Supabase Postgres — costing, procurement, material and " +
           "labour tracking, payroll, and maintenance under one nine-role approval hierarchy with " +
           "value-threshold gates and row-level security.",
-        "Delivered a real-time task and ticketing platform for telecom operations on Flask-SocketIO over " +
-          "gevent, with change-data-capture sync, optimistic UI with rollback, and SLA escalation that " +
-          "auto-classifies and freezes overdue tasks.",
-        "Shipped that platform's AI assistant: RAG over 1536-dimension pgvector embeddings, plus a " +
-          "read-only natural-language-to-SQL tool secured structurally rather than by prompting — " +
-          "AST-level table allow-listing, user-scoped CTE shadowing, injected LIMIT caps, and query " +
-          "timeouts, with every call audit-logged.",
+        // Collapsed from two bullets: the Selected Projects entry below now carries the
+        // gevent and natural-language-to-SQL detail, and repeating it here cost a page.
+        "Delivered Office Task Manager, a real-time telecom task and ticketing platform with " +
+          "change-data-capture sync, optimistic UI with rollback, SLA escalation that auto-classifies " +
+          "and freezes overdue tasks, and an AI assistant built on pgvector RAG.",
       ],
     },
     {
@@ -121,61 +119,97 @@ export const resume: ResumeConfig = {
 
   projects: [
     {
-      slug: "valoryx-software",
-      descriptor: "Multi-tenant Retail POS & Back-Office",
-      stack: ["React", "TypeScript", "Flask", "SQLAlchemy", "Supabase", "SQLite", "Redis", "Electron"],
+      slug: "office-task-manager",
+      descriptor: "Real-Time Telecom Ops Platform & AI Assistant",
+      stack: ["React 18", "TypeScript", "Flask-SocketIO", "gevent", "PostgreSQL", "pgvector", "Supabase"],
       bullets: [
-        "Cut page loads from 3–9 seconds to 1–20 ms — a 100×+ improvement on hot paths — by replacing " +
-          "per-request Supabase round-trips with a local SQLite mirror and an in-memory analytics cache.",
-        "Built offline-first billing that keeps the counter running through internet outages and syncs to " +
-          "Supabase Postgres on reconnect, with multi-tenant isolation on every query, five-role " +
-          "permissions, and TOTP 2FA.",
+        "Ran Socket.IO in gevent mode with psycogreen-cooperative psycopg2 so one slow query cannot " +
+          "freeze the event loop, keeping websockets alive across full LLM round-trips.",
+        "Bounded the AI assistant's natural-language-to-SQL path with a sqlparse table allow-list and " +
+          "user-scoped CTE rewriting — a parser-level boundary, not prompt instructions.",
       ],
     },
     {
-      slug: "bigtreat-mlm-platform",
-      descriptor: "MLM Commission Platform & Media Feed",
-      stack: ["React", "TypeScript", "Redux Toolkit", "Flask", "PostgreSQL", "Redis", "Gunicorn"],
+      slug: "metersquare-erp",
+      descriptor: "Construction ERP & Approval Hierarchy",
+      stack: ["FastAPI", "Python", "Supabase", "PostgreSQL", "SQLAlchemy"],
       bullets: [
-        "Reduced the profile page from hundreds of API calls per second to exactly one on mount by " +
-          "correcting a useEffect dependency defect.",
-        "Moved the JWT blacklist to Redis for consistent logout across 64 concurrent handlers (8 Gunicorn " +
-          "workers × 8 threads), made reactivation race-safe with row-level locking, and tuned the " +
-          "deployment to ~300–500 requests/second.",
+        "Unified costing, procurement, material and labour tracking, payroll, and maintenance under " +
+          "one role hierarchy with value-threshold approval gates, enforced by Postgres row-level " +
+          "security rather than per-route checks.",
+      ],
+    },
+    {
+      slug: "valoryx-software",
+      descriptor: "Offline-First GST Billing & Business Management Platform",
+      stack: ["React", "TypeScript", "Flask", "SQLAlchemy", "Supabase", "SQLite", "Electron"],
+      bullets: [
+        "Built an offline-first billing platform covering GST invoicing, inventory, multi-branch " +
+          "operations, business reporting, and thermal printing, with multi-tenant isolation on every " +
+          "query and TOTP 2FA.",
+        "Cut page loads from 3–9 seconds to 1–20 ms — a 100×+ improvement on hot paths — by replacing " +
+          "per-request Supabase round-trips with a local SQLite mirror that keeps the counter running " +
+          "through network outages and syncs on reconnect.",
+        "Shipped one codebase as both a responsive web app and an auto-updating Electron desktop build, " +
+          "with dashboards for sales and operational performance.",
       ],
     },
     {
       slug: "acadrix-school-platform",
-      descriptor: "K-12 School Management Platform",
+      descriptor: "Multi-Tenant School Management & AI Assessment Platform",
       stack: ["Django 5", "DRF", "React 18", "TypeScript", "PostgreSQL", "Redis", "Celery"],
-      // Single bullet, and deliberately the scale one rather than the AI one: question
-      // generation is already covered by the Jumbo Quiz bullet under Redlitmus, so this
-      // entry earns its space on breadth (apps, endpoints, tables, roles) instead.
       bullets: [
-        "Architected 13 domain-bounded Django apps over 94 multi-tenant models, exposing 140+ " +
-          "OpenAPI-documented REST routes across seven role-scoped dashboards.",
+        "Architected 26 domain-bounded Django apps over 129 multi-tenant models, exposing 280+ " +
+          "OpenAPI-documented REST routes across nine role-scoped dashboards — covering admissions, " +
+          "academics, attendance, fees, examinations, transport, library, and HR/payroll.",
+        "Implemented tenant isolation, RBAC, JWT and OTP authentication, TOTP 2FA, and PostgreSQL " +
+          "row-level security for school-level data separation.",
+        "Built asynchronous AI workflows on Celery and Redis for question generation, exam-blueprint " +
+          "creation, online assessment, and written-answer grading.",
+      ],
+    },
+    {
+      slug: "uber-supply-demand-analysis",
+      descriptor: "Python EDA & BI",
+      stack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI"],
+      bullets: [
+        "Analysed ride-request, cancellation, and fulfilment patterns to isolate peak-demand periods " +
+          "and the locations where supply shortages concentrate.",
+        "Cleaned and explored trip-level data with time- and location-based segmentation, then " +
+          "reported through Power BI with recommendations for driver allocation and availability.",
+      ],
+    },
+    {
+      slug: "alumni-career-analysis",
+      descriptor: "SQL Segmentation & BI Dashboards",
+      stack: ["SQL", "MySQL", "PostgreSQL", "Python", "Pandas", "Power BI", "Tableau"],
+      bullets: [
+        "Used SQL and exploratory analysis to examine career paths, industry distribution, job roles, " +
+          "and salary progression across alumni records.",
+        "Built analytical views and visualisations answering business questions on industry growth, " +
+          "career progression, and compensation trends.",
       ],
     },
   ],
 
   education: [
     {
-      qualification: "B.E. Computer Science and Engineering",
-      institution: "RVS College of Engineering and Technology",
-      location: "Coimbatore, India",
-      period: "2019 — 2023",
-    },
-    {
       qualification: "Post Graduate Programme, Data Analytics & Data Science",
       institution: "Skill Lync",
       location: "India",
       period: "2023 — 2024",
     },
+    {
+      qualification: "B.E. Computer Science and Engineering",
+      institution: "RVS College of Engineering and Technology",
+      location: "Coimbatore, India",
+      period: "2019 — 2023",
+    },
   ],
 
-  // URLs recovered from the link annotations in the previous resume PDF, kept in the
-  // order they appeared there. VERIFY each one opens the certificate it is named for —
-  // annotation order is a strong hint, not a guarantee.
+  // Corroborated against two independent sources: the link annotations in the previous
+  // resume PDF, and the hand-built FlowCV export where each URL was pasted next to its
+  // own certificate name. Both agree on this exact set and order.
   certifications: [
     { name: "Python Programming", url: "https://drive.google.com/file/d/1LHwP6fDrT2KGGrJA0MkFzktIChY4jCjj/view" },
     { name: "MySQL", url: "https://drive.google.com/file/d/1tRQ-jllT9MfhUWts-9WAmfnZDDPm5HMW/view" },
